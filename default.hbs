@@ -93,7 +93,7 @@ $(document).ready(function () {
 });
 </script>
 {{!-- Ghost search --}}
-<script src="https://unpkg.com/@tryghost/content-api@{version}/umd/content-api.min.js"></script>
+<script src="https://unpkg.com/@tryghost/content-api@1.5.13/umd/content-api.min.js"></script>
 <script type="text/javascript" src="{{asset "js/ghost-search.min.js"}}"></script>
 <script>
     let ghostSearch = new GhostSearch({
@@ -112,7 +112,7 @@ $(document).ready(function () {
                 let e = document.createElement('p');
                 resultsElement.setAttribute("style", "text-align:left;");
                 resultsElement.setAttribute("class", "no-bullets;");
-                e.innerHTML = "No Search Results';
+                e.innerHTML = 'No Search Results';
                 resultsElement.appendChild(e.firstChild);
                 };
                }
