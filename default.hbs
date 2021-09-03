@@ -97,9 +97,39 @@ $(document).ready(function () {
 <script type="text/javascript" src="{{asset "js/ghost-search.min.js"}}"></script>
 <script>
     let ghostSearch = new GhostSearch({
-        key: '13a7dc828273407253542c1a6a', // This is just a demo key. Replace the key with a real one. See Step 3.
-        url: 'https://blog.samclay.uk', // This is just a demo host. Replace the demo url with a real one. See Step 3.
-    })
+        key: '13a7dc828273407253542c1a6a',
+        url: 'https://blog.samclay.uk', 
+        host: 'https://blog.samclay.uk',
+        input: '#ghost-search-field',
+        results: '#ghost-search-results',
+        options: {
+            limit: 6
+    },
+        on: {
+            afterDisplay: function(results) {
+            if (results.total == 0 && document.getElementById('ghost-search-field').value != '') {
+                let resultsElement = document.getElementById('ghost-search-results');
+                let e = document.createElement('p');
+                resultsElement.setAttribute("style", "text-align:left;");
+                resultsElement.setAttribute("class", "no-bullets;");
+                e.innerHTML = "No Search Results';
+                resultsElement.appendChild(e.firstChild);
+                };
+               }
+               },
+               api: {
+                resources: 'posts'
+                parameters: {
+                    fields: ['title', 'slug', 'plaintext'],
+                    formats: 'plaintext',
+                    },
+                    },
+               template: function(result) {
+               let url = [location.protocol, '//', location.host].join('');
+               return '<ul><li><a href="' + url + '/' + result.slug + '/' + '">' + result.title + '</a></li></ul>';
+               }
+               }
+    )
 </script>
 
 
