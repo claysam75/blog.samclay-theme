@@ -95,6 +95,13 @@ $(document).ready(function () {
 {{!-- Ghost search --}}
 <script src="https://unpkg.com/@tryghost/content-api@{version}/umd/content-api.min.js"></script>
 <script type="text/javascript" src="{{asset "js/ghost-search.min.js"}}"></script>
+<script>
+    let ghostSearch = new GhostSearch({
+        key: '13a7dc828273407253542c1a6a', // This is just a demo key. Replace the key with a real one. See Step 3.
+        url: 'https://blog.samclay.uk', // This is just a demo host. Replace the demo url with a real one. See Step 3.
+    })
+</script>
+
 
 
 
