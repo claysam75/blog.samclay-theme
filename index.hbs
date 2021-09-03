@@ -24,7 +24,12 @@ into the {body} of the default.hbs template --}}
         {{/if}}
     </h1>
     <p>{{@site.description}}</p>
-    <input id="ghost-search-field">
+    <form>
+    <div class="search-fields">
+    
+    <input placeholder="Search..." id="ghost-search-field">
+    </div>
+    </form>
     <div id="ghost-search-results"></div>
     
 </div>
